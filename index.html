@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HoloPort | Futuristic Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00f0ff;
+      --secondary: #7b2fff;
+      --dark: #0a0a20;
+    }
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'poppins', sans-serif;
+  }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #0a0a15;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+    
+    .hologram-card {
+      border: 1px solid rgba(123, 47, 255, 0.3);
+      background: rgba(10, 10, 35, 0.7);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+    }
+    
+    .hologram-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+      transform: translateY(-5px);
+    }
+    
+    .hologram-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .hologram-card:hover::before {
+      opacity: 0.5;
+    }
+    
+    .hologram-text {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .navbar {
+      background: rgba(10, 10, 35, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .glow {
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar fixed w-full z-50 border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="text-2xl font-bold">
+          <span class="text-white">Rise Of The<span class="hologram-text"> Cookies Legend</span></span>
+        </div>
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link text-white hover:text-primary transition">Home</a>
+          <a href="#about" class="nav-link text-white hover:text-primary transition">About</a>
+          <a href="#skills" class="nav-link text-white hover:text-primary transition">Skills</a>
+          <a href="#Goals" class="nav-link text-white hover:text-primary transition">Goals</a>
+          <a href="#contact" class="nav-link text-white hover:text-primary transition">Contact</a>
+        </div>
+        <button class="md:hidden text-white">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-20">
+    <div class="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center">
+      <div class="md:w-1/2 mb-12 md:mb-0">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+          <span class="block">Membangun</span>
+          <span class="hologram-text glow">Portfolio</span>
+          <span class="block">Dengan</span>
+          <span class="hologram-text glow">Proyek Kecil</span>
+        </h1>
+        <p class="text-lg text-gray-300 mb-8 max-w-lg">
+          Rencana yang saya inginkan adalah membuat proyek dan portofolio di masa depan. Mewujudkan ide yang tak mungkin menjadi mungkin.
+        </p>
+        <div class="flex space-x-4">
+  <a href="#portfolio" class="bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full font-medium hover:opacity-90 transition">
+    Lihat Portfolio
+  </a>
+  <a href="#contact" class="border border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary hover:bg-opacity-10 transition">
+    Hubungi Saya
+  </a>
+    </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center mr-8">
+  <div class="relative w-full max-w-md">
+    <div
+      class="absolute w-full h-full rounded-full"
+      style="pointer-events: none;
+             background: radial-gradient(circle at 50% 50%, rgba(0,240,255,0.12), rgba(123,47,255,0.08) 50%, transparent 70%);
+             filter: blur(18px);
+             top: 0; left: 0;">
+    </div>
+
+    <!-- Floating Image with neon circular border -->
+    <div class="relative floating" style="z-index: 5; display: inline-block;">
+      <!-- Outer gradient ring -->
+      <div
+        style="border-radius: 50%;
+               padding: 8px;
+               background: conic-gradient(from 0deg, rgba(0,240,255,0.95), rgba(123,47,255,0.95), rgba(0,240,255,0.95));
+               box-shadow:
+                 0 0 25px rgba(0,240,255,0.25),
+                 0 0 55px rgba(123,47,255,0.18);
+               display: inline-block;">
+        <!-- Inner dark stroke -->
+        <div
+          style="border-radius: 50%;
+                 padding: 4px;
+                 background: rgba(10,10,20,0.9);
+                 box-shadow: inset 0 0 12px rgba(0,0,0,0.6);">
+          <!-- Actual circular image -->
+          <img
+            src="logo.png"
+            alt="Holographic interface glowing circular"
+            style="display: block;
+                   width: 300px;
+                   height: 300px;
+                   object-fit: cover;
+                   border-radius: 50%;">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Scroll Down Icon -->
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+  <i class="fas fa-chevron-down" style="color: #00f0ff; font-size: 1.5rem;"></i>
+</div>
+
+
+<!-- Scroll Down Icon -->
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+  <i class="fas fa-chevron-down text-blue-500 text-2xl"></i>
+</div>
+
+  </section>
+
+  <section id="about" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">
+          <span class="hologram-text">👤</span>  About <span class="hologram-text">Me</span>
+        </h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/3">
+          <div class="hologram-card rounded-lg overflow-hidden p-1">
+            <img src="Gambar.jpg" alt="Portrait of a futuristic designer in a cyberpunk environment with neon light reflections on face" class="w-full h-auto rounded-lg">
+          </div>
+        </div>
+        <div class="md:w-2/3">
+          <h3 class="text-2xl md:text-3xl font-bold mb-6"><span class="hologram-text"><b>FAHRI</b></span> <i>ZULKIFLI</i> <span class="hologram-text">:</span></h3>
+          <p class="text-gray-300 mb-6">
+         Saya adalah pelajar developer berusia 14 tahun dengan passion besar di bidang teknologi, khususnya front-end. Saya mulai menguasai HTML, CSS, JavaScript, dan mulai mendalami React untuk menciptakan website responsif yang fungsional sekaligus estetik. Selain coding, saya juga memulai belajar desain grafis tipis-tipis untuk tempat saya mengekspresikan kreativitas. Saya percaya bahwa teknologi dan seni dapat bersinergi untuk menciptakan pengalaman yang luar biasa. Saya berharap dapat berkontribusi pada proyek-proyek ini yang berdampak dan terus belajar di bidang ini.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="flex items-center">
+              <div class="mr-4 text-primary text-2xl">
+                <i class="fas fa-user-astronaut"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Berpikir Secara Logis</h4>
+                <p class="text-gray-400 text-sm">Mampu menganalisis masalah secara kritis dan mengambil keputusan yang rasional.</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="mr-4 text-primary text-2xl">
+                <i class="fas fa-cube"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Kerja Sama Tim</h4>
+                <p class="text-gray-400 text-sm">Berorientasi pada kolaborasi dengan membangun hubungan yang solid dan produktif.</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="mr-4 text-primary text-2xl">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Daya Tangkap Cepat</h4>
+                <p class="text-gray-400 text-sm">Cepat memahami informasi baru serta mampu beradaptasi dengan kebutuhan yang berbeda.</p>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div class="mr-4 text-primary text-2xl">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-1">Keterampilan Privasi</h4>
+                <p class="text-gray-400 text-sm">Menjaga kerahasiaan informasi dan melindungi kepercayaan yang diberikan.</p>
+              </div>
+            </div>
+       </div>
+    </div>
+  </section>
+
+<section id="skills" class="py-20 bg-gradient-to-b from-black to-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        Skills in <span class="hologram-text">Programming Languages</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="md:col-span-2 space-y-6">
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="flex items-center gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-6 h-6" />
+              HTML
+            </span>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-3">
+            <div class="h-3 rounded-full bg-orange-400 progress-bar" data-progress="80"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="flex items-center gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-6 h-6" />
+              CSS
+            </span>
+            <span class="skill-percent">60%</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-3">
+            <div class="h-3 rounded-full bg-blue-400 progress-bar" data-progress="60"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="flex items-center gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-6 h-6" />
+              JavaScript
+            </span>
+            <span class="skill-percent">70%</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-3">
+            <div class="h-3 rounded-full bg-yellow-400 progress-bar" data-progress="70"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <span class="flex items-center gap-2">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="w-6 h-6" />
+              Python
+            </span>
+            <span class="skill-percent">80%</span>
+          </div>
+          <div class="w-full bg-gray-700 rounded-full h-3">
+            <div class="h-3 rounded-full bg-green-400 progress-bar" data-progress="80"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2 grid grid-cols-2 gap-8 text-center">
+  <div>
+    <div class="relative w-24 h-24 mx-auto">
+      <svg class="w-24 h-24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" stroke="#444" stroke-width="8" fill="none"/>
+        <circle cx="50" cy="50" r="40" stroke="#f97316" stroke-width="8" fill="none"
+                stroke-dasharray="251" stroke-dashoffset="25" transform="rotate(-90 50 50)"/>
+      </svg>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" 
+           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8">
+    </div>
+    <p class="mt-2">HTML 80%</p>
+  </div>
+
+  <div>
+    <div class="relative w-24 h-24 mx-auto">
+      <svg class="w-24 h-24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" stroke="#444" stroke-width="8" fill="none"/>
+        <circle cx="50" cy="50" r="40" stroke="#3b82f6" stroke-width="8" fill="none"
+                stroke-dasharray="251" stroke-dashoffset="50" transform="rotate(-90 50 50)"/>
+      </svg>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" 
+           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8">
+    </div>
+    <p class="mt-2">CSS 60%</p>
+  </div>
+
+  <div>
+    <div class="relative w-24 h-24 mx-auto">
+      <svg class="w-24 h-24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" stroke="#444" stroke-width="8" fill="none"/>
+        <circle cx="50" cy="50" r="40" stroke="#eab308" stroke-width="8" fill="none"
+                stroke-dasharray="251" stroke-dashoffset="75" transform="rotate(-90 50 50)"/>
+      </svg>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" 
+           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8">
+    </div>
+    <p class="mt-2">JavaScript 70%</p>
+  </div>
+
+  <div>
+    <div class="relative w-24 h-24 mx-auto">
+      <svg class="w-24 h-24" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" stroke="#444" stroke-width="8" fill="none"/>
+        <circle cx="50" cy="50" r="40" stroke="#22c55e" stroke-width="8" fill="none"
+                stroke-dasharray="251" stroke-dashoffset="100" transform="rotate(-90 50 50)"/>
+      </svg>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" 
+           class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8">
+    </div>
+    <p class="mt-2">Python 80%</p>
+  </div>
+</div>
+</section>
+
+<section id="portfolio" class="py-20 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        My Portfolio <span class="hologram-text">Goals </span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+      <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+        Rencana pilihan proyek yang saya inginkan untuk menghasilkan portofolio supaya memudahkan saya mendapatkan karier nanti.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="hologram-card rounded-lg overflow-hidden border-4 border-primary p-2">
+        <img src="https://img.freepik.com/premium-photo/business-cards-templates-flyers-customizable-designs-professional-branding_1191871-29336.jpg?semt=ais_hybrid" 
+             alt="Holographic dashboard UI with analytics and 3D data visualization in blue neon colors" 
+             class="w-full h-auto rounded-md">
+        <div class="p-4">
+          <div class="text-primary font-bold text-sm mb-1">Website</div>
+          <h3 class="text-xl font-bold">Berbagai Situs Web Simpel</h3>
+          <p class="text-gray-400 mb-4 mt-2">
+            Berbagai template website untuk kebutuhan sesuai dengan keinginan yang sudah disediakan.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">HTML</span>
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">CSS</span>
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">JavaScript</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hologram-card rounded-lg overflow-hidden border-4 border-primary p-2">
+        <img src="https://img.freepik.com/free-vector/ux-ui-design-landing-page_52683-866.jpg?ga=GA1.1.1056495612.1727086293&semt=ais_hybrid" 
+             alt="Augmented reality interface floating in mid air with transparent blue screens and digital elements" 
+             class="w-full h-auto rounded-md">
+        <div class="p-4">
+          <div class="text-primary font-bold text-sm mb-1">Design</div>
+          <h3 class="text-xl font-bold">Desain Grafis Dengan Dasar UI/UX</h3>
+          <p class="text-gray-400 mb-4 mt-2">
+            Membuat berbagai desain seperti website, papan iklan, poster dan lainnya dengan sesuai.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">Figma</span>
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">Canva</span>
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">Photoshop CS</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hologram-card rounded-lg overflow-hidden border-4 border-primary p-2">
+        <img src="https://img.freepik.com/free-vector/gradient-colored-ui-kit-collection_23-2149218855.jpg?semt=ais_hybrid" 
+             alt="Futuristic mobile app with transparent elements and data streams floating above the screen" 
+             class="w-full h-auto rounded-md">
+        <div class="p-4">
+          <div class="text-primary font-bold text-sm mb-1">Cybersecurity</div>
+          <h3 class="text-xl font-bold">Keamanan Siber</h3>
+          <p class="text-gray-400 mb-4 mt-2">
+            Mengamankan data, virus, memperbaiki website resmi dari hacker dan lainya dengan perizinan dan syarat tertentu.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">Ubuntu</span>
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">Burp Suite</span>
+            <span class="px-3 py-1 bg-gray-800 bg-opacity-50 rounded-full text-xs">Kali Linux</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="certificate" class="py-20 bg-gradient-to-b from-black to-gray-900">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        <span class="hologram-text">📜</span> Certificate <span class="hologram-text">Me</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+      <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+        Ini adalah Sertifikat hasil belajar saya di Kursus Online MySkill tentang Frond-end, Programming, Website, dan Developer.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="hologram-card rounded-lg overflow-hidden border-4 border-primary p-2">
+        <img src="oko1.jpg" alt="Sertifikat 1" 
+             class="w-full h-auto rounded-md">
+        <div class="p-4">
+          <div class="text-primary font-bold text-sm mb-1">MySkill</div>
+          <h3 class="text-xl font-bold">Browser, HTTP, DNS, and Hosting</h3>
+        </div>
+      </div>
+
+      <div class="hologram-card rounded-lg overflow-hidden border-4 border-primary p-2">
+        <img src="oko2.jpg" alt="Sertifikat 2" 
+             class="w-full h-auto rounded-md">
+        <div class="p-4">
+          <div class="text-primary font-bold text-sm mb-1">MySkill</div>
+          <h3 class="text-xl font-bold">Frond-End Development Introduction </h3>
+        </div>
+      </div>
+
+      <div class="hologram-card rounded-lg overflow-hidden border-4 border-primary p-2">
+        <img src="oko3.jpg" alt="Sertifikat 3" 
+             class="w-full h-auto rounded-md">
+        <div class="p-4">
+          <div class="text-primary font-bold text-sm mb-1">MySkill</div>
+          <h3 class="text-xl font-bold">Making a "TO DO LIST" Website </h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">
+        <span class="hologram-text">📞</span>Contant <span class="hologram-text">Me</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+      <p class="text-gray-400 max-w-2xl mx-auto mt-4">
+        Saya membutuhkan saran dan ide proyek-proyek sesuai dengan kebutuhan untuk Portofolio nanti saat kerja remote, jangan ragu untuk mencoba hubungi saya tentang saran dan ide lainnya dengan kontak di bawah ini.
+      </p>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-12">
+      <div class="lg:w-1/2">
+        <h3 class="text-2xl font-bold mb-6">Informasi yang sedang jalankan untuk masa depan</h3>
+        <p class="text-gray-400 mb-8">
+          Selain tujuan saya di webisite ini saya juga sedang mempertajam keterampilan untuk masa depan yang cerah dengan adanya teknologi. Baik Anda membutuhkan situs web, desain grafis, atau melindungi keamanan data yang penting, mari kita ciptakan sesuatu yang luar biasa bersama.
+        </p>
+        
+        <div class="space-y-6">
+          <div class="flex items-start">
+            <div class="text-primary text-2xl mr-4 mt-1">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">Email</h4>
+              <p class="text-gray-400"><a href="mailto:super.choco532@gmail.com">super.choco532@gmail.com</a></p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="text-primary text-2xl mr-4 mt-1">
+              <i class="fab fa-github"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">Github</h4>
+              <p class="text-gray-400"><a href="#">@superchoco532-maks</a></p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="text-primary text-2xl mr-4 mt-1">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">WhatsApp</h4>
+              <p class="text-gray-400"><a href="https://wa.me/6287778402076">+62 877-7840-2076</a></p>
+            </div>
+          </div>
+
+          <div class="flex items-start">
+            <div class="text-primary text-2xl mr-4 mt-1">
+              <i class="fab fa-tiktok"></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">TikTok</h4>
+              <p class="text-gray-400"><a href="https://www.tiktok.com/@honey_choco53">@honey_choco53</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+   <div class="lg:w-1/2">
+  <div class="hologram-card p-8 rounded-lg">
+    <h3 class="text-2xl font-bold mb-6">Kirimkan Saya Pesan</h3>
+
+    <!-- ✅ Tambahkan id -->
+    <form id="whatsappForm">
+      <div class="mb-6">
+        <label for="name" class="block text-gray-400 mb-2">Nama Anda :</label>
+        <input type="text" id="name" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3" placeholder="Enter your name" required>
+      </div>
+      
+      <div class="mb-6">
+        <label for="email" class="block text-gray-400 mb-2">Email Anda :</label>
+        <input type="email" id="email" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3" placeholder="Enter your email" required>
+      </div>
+      
+      <div class="mb-6">
+        <label for="subject" class="block text-gray-400 mb-2">Pembahasan :</label>
+        <input type="text" id="subject" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3" placeholder="What's this about?" required>
+      </div>
+      
+      <div class="mb-6">
+        <label for="message" class="block text-gray-400 mb-2">Pesan Anda :</label>
+        <textarea id="message" rows="5" class="w-full bg-gray-800 bg-opacity-50 border border-gray-700 rounded-lg px-4 py-3" placeholder="Tell me about your project"></textarea>
+      </div>
+      
+      <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary px-6 py-4 rounded-lg font-bold hover:opacity-90 transition">
+        Kirim Pesan
+      </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  <footer class="bg-black py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-2xl font-bold mb-6 md:mb-0">
+          <span class="text-white">Semoga Ini Jadi <span class="hologram-text"><b>KENYATAAN</b></span></span>
+        </div>
+        <div class="text-gray-400 text-sm">
+          © 2025 Rise of the Cookies Legend.| Seluruh hak cipta dilindungi undang-undang.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+   document.getElementById("whatsappForm").addEventListener("submit", function(event){
+    event.preventDefault();
+
+    let phoneNumber = "6287778402076";
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+    let whatsappMessage = encodeURIComponent(
+      `Halo, saya ${name}\nEmail: ${email}\nSubject: ${subject}\nPesan: ${message}`
+    );
+
+    window.open(`https://wa.me/${phoneNumber}?text=${whatsappMessage}`, "_blank");
+  });
+
+   document.addEventListener('DOMContentLoaded', () => {
+  const bars = Array.from(document.querySelectorAll('#skills .progress-bar'));
+  bars.forEach((bar, i) => {
+    const pct = Number(bar.getAttribute('data-progress')) || 0;
+    bar.style.width = '0%';
+    bar.style.transition = 'width 1000ms ease';
+    setTimeout(() => { bar.style.width = pct + '%'; }, 120 + i * 80);
+  });
+
+  const percentSpans = Array.from(document.querySelectorAll('#skills .skill-percent'));
+  percentSpans.forEach((span, i) => {
+    const pct = bars[i] ? (Number(bars[i].getAttribute('data-progress')) || 0) : null;
+    if (pct !== null) span.textContent = pct + '%';
+  });
+
+  const svgs = Array.from(document.querySelectorAll('#skills svg'));
+  svgs.forEach((svg, index) => {
+    const circles = svg.querySelectorAll('circle');
+    if (circles.length < 2) return;
+    const progressCircle = circles[1];
+
+    const r = progressCircle.r.baseVal.value;
+    const circumference = 2 * Math.PI * r;
+
+    progressCircle.style.strokeDasharray = `${circumference}`;
+
+    const pct = bars[index] ? (Number(bars[index].getAttribute('data-progress')) || 0) : 0;
+
+    const offset = circumference * (1 - (pct / 100));
+
+    progressCircle.style.strokeDashoffset = offset;
+    progressCircle.style.transition = 'stroke-dashoffset 1000ms ease';
+  });
+
+});
+    
+    const mobileMenuButton = document.querySelector('.md\\:hidden');
+    const mobileMenu = document.querySelector('.md\\:flex');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+      mobileMenu.classList.toggle('flex-col');
+      mobileMenu.classList.toggle('absolute');
+      mobileMenu.classList.toggle('top-16');
+      mobileMenu.classList.toggle('left-0');
+      mobileMenu.classList.toggle('right-0');
+      mobileMenu.classList.toggle('bg-gray-900');
+      mobileMenu.classList.toggle('p-4');
+      mobileMenu.classList.toggle('space-y-4');
+      mobileMenu.classList.add('space-x-0');
+    });
+    
+    document.querySelectorAll('.hologram-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        card.style.setProperty('--x', `${x}px`);
+        card.style.setProperty('--y', `${y}px`);
+      });
+    });
+  </script>
+</body>
+</html>
